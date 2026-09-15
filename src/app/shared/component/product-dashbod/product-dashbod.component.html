@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <app-product-form
+        (submitdata)="submit($event)"
+        [patchData]="editObj"
+        (updatedata)="onUpdate($event)"
+      ></app-product-form>
+    </div>
+    <div class="col-md-8">
+      <app-product-list
+        [getData]="product"
+        (editData)="editPdt($event)"
+        (removeData)="onRemove($event)"
+      ></app-product-list>
+    </div>
+  </div>
+</div>
+r
