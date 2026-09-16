@@ -19,6 +19,7 @@
           <mat-icon>edit</mat-icon>
         </button>
         <button
+          [disabled]="IsinEditMode && editId === data.id"
           mat-mini-fab
           color="warn"
           aria-label="Example icon button with a menu icon"

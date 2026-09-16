@@ -9,7 +9,8 @@ import { IProduct } from '../model/product';
 export class ProductListComponent implements OnInit {
   @Input() getData!: IProduct[];
   @Output() editData: EventEmitter<IProduct> = new EventEmitter<IProduct>();
-
+  @Input() IsinEditMode:boolean=false;
+  editId!: number;
   @Output() removeData: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {}
@@ -18,6 +19,7 @@ export class ProductListComponent implements OnInit {
 
   editPdt(pdt: IProduct) {
     this.editData.emit(pdt);
+    this.editId=pdt.id;
   }
 
   removePdt(id: number) {

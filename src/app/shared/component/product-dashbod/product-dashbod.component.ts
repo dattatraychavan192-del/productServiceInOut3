@@ -11,6 +11,8 @@ export class ProductDashbodComponent implements OnInit {
   product: IProduct[] = PRODUCT_DATA;
   constructor(private _snackbar: SnackbarServiceService) {}
 
+  IsinEditMode : boolean = false;
+
   editObj!: IProduct;
   ngOnInit(): void {}
   submit(pdt: IProduct) {
@@ -22,13 +24,17 @@ export class ProductDashbodComponent implements OnInit {
 
   editPdt(pdt: IProduct) {
     this.editObj = pdt;
+    this.IsinEditMode=true
   }
 
   onUpdate(pdt: IProduct) {
     let getIndex = this.product.findIndex((d) => d.id === pdt.id);
 
     this.product[getIndex] = pdt;
-    this._snackbar.snackbar(`Product Update Successfully with id ${pdt.id} !!`);
+    this._snackbar.snackbar
+    (`Product Update Successfully with id ${pdt.id} !!`);
+this.IsinEditMode=false;
+
   }
 
   onRemove(id: number) {
